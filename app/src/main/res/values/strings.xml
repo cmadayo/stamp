@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Stamp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="draw_button">スタンプ作成</string>
+    <string name="rules">Rules</string>
+    <string name="about">About</string>
+    <string name="draw_title">スタンプ作成画面</string>
+    <string name="save">保存</string>
+
+</resources>

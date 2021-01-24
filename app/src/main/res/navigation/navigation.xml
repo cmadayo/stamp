@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/topFragment">
+
+    <fragment
+        android:id="@+id/topFragment"
+        android:name="com.example.stamp.ui.TopFragment"
+        android:label="app_name"
+        tools:layout="@layout/fragment_top">
+        <action
+            android:id="@+id/action_topFragment_to_drawFragment"
+            app:destination="@id/drawFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/drawFragment"
+        android:name="com.example.stamp.ui.draw.DrawFragment"
+        android:label="スタンプ作成画面"
+        tools:layout="@layout/fragment_draw" />
+
+</navigation>
