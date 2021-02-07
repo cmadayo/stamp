@@ -39,7 +39,7 @@ class DrawView : View {
     // 現在位置座標(Y座標)
     private var currentY = 0f
 
-    //
+    // 描画(Path)設定
     private var path = Path()
     // 描画(Paint)設定
     private val paint = Paint().apply {
@@ -116,4 +116,8 @@ class DrawView : View {
     }
 
     private fun touchUp() {}
+
+    public fun bitmap(): Bitmap {
+        return extraBitmap;
+    }
 }
