@@ -13,7 +13,7 @@ interface StampDao {
     fun insert( videos: StampEntity)
 }
 
-@Database(entities = [StampEntity::class], version = 1)
+@Database(entities = [StampEntity::class], version = 1, exportSchema = false)
 @TypeConverters(BitmapConverter::class)
 abstract class StampsDatabase: RoomDatabase() {
     abstract val stampDao: StampDao

@@ -8,30 +8,23 @@ import android.widget.LinearLayout
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stamp.R
 import com.example.stamp.databinding.FragmentStampBinding
-import com.example.stamp.databinding.FragmentTopBinding
 import com.example.stamp.databinding.StampItemBinding
 import com.example.stamp.domain.DomainStamp
 import com.example.stamp.viewmodels.StampViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StampFragment : Fragment() {
     /**
      * Memo:ViewModelを遅延初期化。onActivityCreated前に参照することはNG
      */
-    private val viewModel: StampViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onActivityCreated()"
-        }
-        ViewModelProvider(this,
-            StampViewModel.Factory(activity.application)).get(StampViewModel::class.java)
-    }
+    private val viewModel: StampViewModel by viewModels()
 
     /**
      * RecyclerView Adapter for converting a list of Stamp to cards.
