@@ -3,6 +3,7 @@ package com.example.stamp.ui.view
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
@@ -10,6 +11,10 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.stamp.R
 
 private const val STROKE_WIDTH = 12f
+private const val GRID_STROKE_WIDTH = 1f
+private const val FRAME_STROKE_WIDTH = 1f
+private const val X_SPLIT = 4
+private const val Y_SPLIT = 4
 
 /**
  * スタンプ作成画面のお絵描き領域のビュー
@@ -25,8 +30,11 @@ class DrawView : View {
     private lateinit var extraBitmap: Bitmap
 
     private val backgroundColor = ResourcesCompat.getColor(resources, R.color.colorBackground, null)
+    private val frameColor = ResourcesCompat.getColor(resources, R.color.colorBackground, null)
     private val drawColor = ResourcesCompat.getColor(resources, R.color.colorPaint, null)
+    private val drawBackgroundGridColor = ResourcesCompat.getColor(resources, R.color.colorBackgroundPaint, null)
 
+    // 枠線
     private lateinit var frame: Rect
 
     // 描画判定距離の閾値
@@ -42,9 +50,10 @@ class DrawView : View {
     // 現在位置座標(Y座標)
     private var currentY = 0f
 
-    // 描画(Path)設定
+    // Path描画設定
     private var path = Path()
-    // 描画(Paint)設定
+
+    // Paint描画設定
     private val paint = Paint().apply {
         color = drawColor             // 色
         isAntiAlias = true            // アンチエイリアス
@@ -55,27 +64,60 @@ class DrawView : View {
         strokeWidth = STROKE_WIDTH    // ストローク幅
     }
 
+    // Paint描画設定(枠線)
+    private val paintFrame = Paint().apply {
+        color = frameColor                  // 色
+        isAntiAlias = true                  // アンチエイリアス
+        isDither = true                     // ディザリング(デバイスに合わせて色をダウンサンプリング)
+        style = Paint.Style.STROKE          // 線のスタイル
+        strokeJoin = Paint.Join.ROUND       // 線の結合部分
+        strokeCap = Paint.Cap.ROUND         // 線の先端
+        strokeWidth = FRAME_STROKE_WIDTH    // ストローク幅
+    }
+
+    // Paint描画設定(背景Grid)
+    private val paintBackGroundGrid = Paint().apply {
+        color = drawBackgroundGridColor                                 // 色
+        isAntiAlias = true                                              // アンチエイリアス
+        isDither = true                                                 // ディザリング(デバイスに合わせて色をダウンサンプリング)
+        style = Paint.Style.STROKE                                      // 線のスタイル
+        pathEffect = DashPathEffect(floatArrayOf(5f, 5f), 0f)    // 点線
+        strokeJoin = Paint.Join.ROUND                                   // 線の結合部分
+        strokeCap = Paint.Cap.ROUND                                     // 線の先端
+        strokeWidth = GRID_STROKE_WIDTH                                 // ストローク幅
+    }
+
     /**
      * サイズ変更時のコールバックメソッド
      * onDrawより先によばれる
      */
     override fun onSizeChanged(width: Int, height: Int, oldWidth: Int, oldHeight: Int) {
         super.onSizeChanged(width, height, oldWidth, oldHeight)
-        // メモリリーク対策で、古いBitmapをリサイクルする
+        // メモリリーク対策で、古いBitmapをリサイクルする(::でlateinitのプロパティにアクセスできるらしい)
         if (::extraBitmap.isInitialized) extraBitmap.recycle()
 
         extraBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         extraCanvas = Canvas(extraBitmap)
         extraCanvas.drawColor(backgroundColor)
 
-        val inset = 40
-        frame = Rect(inset, inset, width - inset, height - inset)
+        frame = Rect(0, 0, width, height)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         canvas.drawBitmap(extraBitmap, 0f, 0f, null)
-        canvas.drawRect(frame, paint)
+        canvas.drawRect(frame, paintFrame)
+        val width = extraBitmap.width.toFloat()
+        val height = extraBitmap.height.toFloat()
+
+        // グリッド線を描画
+        for(i in 1 until X_SPLIT) {
+            Log.e("", "" + width*i/X_SPLIT + "," + 0f + "," + width*i/X_SPLIT + "," + height)
+            canvas.drawLine(width*i/X_SPLIT, 0f, width*i/X_SPLIT, height, paintBackGroundGrid)
+        }
+        for(i in 1 until Y_SPLIT) {
+            canvas.drawLine(0f, height*i/Y_SPLIT, width, height*i/Y_SPLIT, paintBackGroundGrid)
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
