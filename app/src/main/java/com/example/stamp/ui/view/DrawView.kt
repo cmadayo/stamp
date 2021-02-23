@@ -11,6 +11,9 @@ import com.example.stamp.R
 
 private const val STROKE_WIDTH = 12f
 
+/**
+ * スタンプ作成画面のお絵描き領域のビュー
+ */
 class DrawView : View {
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)

@@ -8,5 +8,6 @@
     <string name="draw_title">スタンプ作成画面</string>
     <string name="save">保存</string>
     <string name="stamps">スタンプ一覧</string>
+    <string name="title">タイトル</string>
 
 </resources>

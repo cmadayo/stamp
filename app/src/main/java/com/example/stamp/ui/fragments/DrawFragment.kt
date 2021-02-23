@@ -8,19 +8,26 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.example.stamp.R
 import com.example.stamp.databinding.FragmentDrawBinding
+import com.example.stamp.modules.EventObserver
 import com.example.stamp.viewmodels.DrawViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Fragment:スタンプ作成画面
+ */
 @AndroidEntryPoint
 class DrawFragment : Fragment() {
     /**
      * Memo:ViewModelを遅延初期化。onActivityCreated前に参照することはNG
+     * by viewModelsで勝手にViewModelInjectされるようになってるみたい
      */
     private val viewModel: DrawViewModel by viewModels()
 
+    /**
+     * onCreateView
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,7 +39,7 @@ class DrawFragment : Fragment() {
             container, false
         )
 
-        viewModel.clickedSavedButton.observe(viewLifecycleOwner, Observer {
+        viewModel.clickedSaveButton.observe(viewLifecycleOwner, EventObserver {
             val bitmap : Bitmap = binding.drawView.bitmap()
             viewModel.addStamp(bitmap)
         })
