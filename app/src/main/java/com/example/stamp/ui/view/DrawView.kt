@@ -12,7 +12,7 @@ import com.example.stamp.R
 
 private const val STROKE_WIDTH = 12f
 private const val GRID_STROKE_WIDTH = 1f
-private const val FRAME_STROKE_WIDTH = 1f
+private const val FRAME_STROKE_WIDTH = 4f
 private const val X_SPLIT = 4
 private const val Y_SPLIT = 4
 
@@ -30,7 +30,7 @@ class DrawView : View {
     private lateinit var extraBitmap: Bitmap
 
     private val backgroundColor = ResourcesCompat.getColor(resources, R.color.colorBackground, null)
-    private val frameColor = ResourcesCompat.getColor(resources, R.color.colorBackground, null)
+    private val frameColor = ResourcesCompat.getColor(resources, R.color.colorFrame, null)
     private val drawColor = ResourcesCompat.getColor(resources, R.color.colorPaint, null)
     private val drawBackgroundGridColor = ResourcesCompat.getColor(resources, R.color.colorBackgroundPaint, null)
 

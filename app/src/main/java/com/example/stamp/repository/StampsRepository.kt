@@ -26,6 +26,8 @@ class StampsRepository @Inject constructor() : IStampRepository {
      */
     override fun getStamps(): LiveData<List<DomainStamp>> {
         // Entity(DBのDTO)からDomain(ViewのDTO)へ変換
+        // Roomデータベースのデータが更新されると自動でLiveDataが更新される
+        // さらに、Transformations.mapは、LiveDataが更新されると変換後のデータも更新される
         return Transformations.map(dao.getStamps()) {
             it.asDomainModel()
         }

@@ -11,7 +11,7 @@ import com.example.stamp.modules.Event
 import kotlinx.coroutines.launch
 
 class DrawViewModel @ViewModelInject constructor(
-    private val repository: IStampRepository
+    private val mRepository: IStampRepository
 ) : ViewModel() {
     /**
      * 保存ボタン押下イベント通知
@@ -36,7 +36,7 @@ class DrawViewModel @ViewModelInject constructor(
      */
     fun addStamp(bitmap: Bitmap) {
         viewModelScope.launch {
-            repository.addStamp(DomainStamp(0, title.value ?: "", bitmap))
+            mRepository.addStamp(DomainStamp(0, title.value ?: "", bitmap))
         }
     }
 }

@@ -1,9 +1,8 @@
 package com.example.stamp.viewmodels
 
-import android.app.Application
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.example.stamp.domain.DomainStamp
 
 interface IStampRepository {
@@ -14,8 +13,8 @@ interface IStampRepository {
 
 class StampViewModel
     @ViewModelInject
-    constructor(application: Application, private val repository: IStampRepository)
-    : AndroidViewModel(application) {
+    constructor(private val repository: IStampRepository)
+    : ViewModel() {
 
     /**
      * Stamps displayed on the screen.

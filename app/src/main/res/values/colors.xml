@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lightgray">#FFAAAAAA</color>
+    <color name="lightgray">#FFDDDDDD</color>
 <!--    <color name="colorBackground">#FFFF5500</color>-->
     <color name="colorBackground">#FFFFFFFF</color>
     <color name="colorPaint">#FFFFEB3B</color>
