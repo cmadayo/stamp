@@ -1,4 +1,4 @@
-package com.example.stamp.viewmodels
+package com.example.stamp.businesslogic.viewmodels
 
 import android.graphics.Bitmap
 import android.view.View
@@ -6,7 +6,8 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.stamp.domain.DomainStamp
+import com.example.stamp.businesslogic.dataaccess.IStampRepository
+import com.example.stamp.businesslogic.domains.DomainStamp
 import com.example.stamp.modules.Event
 import kotlinx.coroutines.launch
 

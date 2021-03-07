@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.stamp.viewmodels.DrawViewModel" />
+            type="com.example.stamp.businesslogic.viewmodels.DrawViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,14 +30,14 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.85" />
 
-        <com.example.stamp.ui.view.DrawView
+        <com.example.stamp.ui.customviews.DrawView
             android:id="@+id/drawView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@id/horizontal_guideline2"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline1"></com.example.stamp.ui.view.DrawView>
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline1"></com.example.stamp.ui.customviews.DrawView>
 
         <Button
             android:id="@+id/button"

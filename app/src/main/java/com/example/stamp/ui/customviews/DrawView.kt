@@ -1,4 +1,4 @@
-package com.example.stamp.ui.view
+package com.example.stamp.ui.customviews
 
 import android.content.Context
 import android.graphics.*

@@ -1,4 +1,4 @@
-package com.example.stamp.domain
+package com.example.stamp.businesslogic.domains
 
 import android.graphics.Bitmap
 import com.example.stamp.database.StampEntity

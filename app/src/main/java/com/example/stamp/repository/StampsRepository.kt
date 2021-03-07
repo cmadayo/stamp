@@ -2,10 +2,10 @@ package com.example.stamp.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
+import com.example.stamp.businesslogic.dataaccess.IStampRepository
+import com.example.stamp.businesslogic.domains.DomainStamp
 import com.example.stamp.database.StampDao
 import com.example.stamp.database.asDomainModel
-import com.example.stamp.domain.DomainStamp
-import com.example.stamp.viewmodels.IStampRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -13,7 +13,8 @@ import javax.inject.Inject
 /**
  * スタンプリポジトリ
  */
-class StampsRepository @Inject constructor() : IStampRepository {
+class StampsRepository @Inject constructor() :
+    IStampRepository {
     /**
      * Dao
      * Memo:HiltでDI

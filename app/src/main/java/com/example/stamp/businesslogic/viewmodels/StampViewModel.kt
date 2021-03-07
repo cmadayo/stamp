@@ -1,17 +1,10 @@
-package com.example.stamp.viewmodels
+package com.example.stamp.businesslogic.viewmodels
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.stamp.domain.DomainStamp
+import com.example.stamp.businesslogic.dataaccess.IStampRepository
 import com.example.stamp.modules.Event
-
-interface IStampRepository {
-    suspend fun addStamp(stamp: DomainStamp)
-    fun getStamps(): LiveData<List<DomainStamp>>
-    fun modifyStamp()
-}
 
 /**
  * ViewModel:スタンプ一覧画面
