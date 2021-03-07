@@ -9,12 +9,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stamp.R
 import com.example.stamp.databinding.FragmentStampBinding
 import com.example.stamp.databinding.StampItemBinding
 import com.example.stamp.domain.DomainStamp
+import com.example.stamp.modules.EventObserver
 import com.example.stamp.viewmodels.StampViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,17 +33,8 @@ class StampFragment : Fragment() {
     private var viewModelAdapter: StampAdapter? = null
 
     /**
-     * onCreateView()のあとに呼び出される
+     * onCreateView
      */
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.stampList.observe(viewLifecycleOwner, Observer<List<DomainStamp>> { stamps ->
-            stamps?.apply {
-                viewModelAdapter?.stamps = stamps
-            }
-        })
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -63,6 +56,28 @@ class StampFragment : Fragment() {
         binding.viewModel = viewModel
 
         return binding.root
+    }
+
+    /**
+     * onViewCreated
+     * onCreateView()のあとに呼び出される
+     */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // スタンプリストをObserve
+        viewModel.stampList.observe(viewLifecycleOwner, Observer<List<DomainStamp>> { stamps ->
+            stamps?.apply {
+                // RecyclerViewのAdapterにスタンプリストを設定
+                viewModelAdapter?.stamps = stamps
+            }
+        })
+
+        // 画面遷移イベントをObserve
+        viewModel.onTransit.observe(viewLifecycleOwner, EventObserver {
+            // 画面遷移
+            findNavController().navigate(R.id.action_stampFragment_to_drawFragment)
+        })
     }
 }
 
