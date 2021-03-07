@@ -13,6 +13,9 @@ interface IStampRepository {
     fun modifyStamp()
 }
 
+/**
+ * ViewModel:スタンプ一覧画面
+ */
 class StampViewModel
     @ViewModelInject
     constructor(private val repository: IStampRepository)
