@@ -6,7 +6,7 @@
     <data>
         <variable
             name="stamp"
-            type="com.example.stamp.domain.DomainStamp" />
+            type="com.example.stamp.businesslogic.domains.DomainStamp" />
 
         <variable
             name="stampClickCallback"

@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import com.example.stamp.R
 import com.example.stamp.databinding.FragmentDrawBinding
 import com.example.stamp.modules.EventObserver
-import com.example.stamp.viewmodels.DrawViewModel
+import com.example.stamp.businesslogic.viewmodels.DrawViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 /**

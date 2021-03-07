@@ -1,14 +1,14 @@
 package com.example.stamp.ui.fragments
 
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.example.stamp.R
 import com.example.stamp.databinding.FragmentTopBinding
-import com.example.stamp.domain.DomainStamp
 
 class TopFragment : Fragment() {
     override fun onCreateView(

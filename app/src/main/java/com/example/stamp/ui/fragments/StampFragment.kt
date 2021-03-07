@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.stamp.R
 import com.example.stamp.databinding.FragmentStampBinding
 import com.example.stamp.databinding.StampItemBinding
-import com.example.stamp.domain.DomainStamp
+import com.example.stamp.businesslogic.domains.DomainStamp
 import com.example.stamp.modules.EventObserver
-import com.example.stamp.viewmodels.StampViewModel
+import com.example.stamp.businesslogic.viewmodels.StampViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

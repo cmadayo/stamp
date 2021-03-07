@@ -3,7 +3,7 @@ package com.example.stamp.database
 import android.graphics.Bitmap
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.stamp.domain.DomainStamp
+import com.example.stamp.businesslogic.domains.DomainStamp
 
 @Entity
 data class StampEntity constructor(

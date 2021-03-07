@@ -1,7 +1,7 @@
 package com.example.stamp.hilt
 
+import com.example.stamp.businesslogic.dataaccess.IStampRepository
 import com.example.stamp.repository.StampsRepository
-import com.example.stamp.viewmodels.IStampRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
