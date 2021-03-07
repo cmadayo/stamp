@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/topFragment"
         android:name="com.example.stamp.ui.fragments.TopFragment"
-        android:label="app_name"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_top">
         <action
             android:id="@+id/action_topFragment_to_drawFragment"
@@ -21,13 +21,13 @@
     <fragment
         android:id="@+id/drawFragment"
         android:name="com.example.stamp.ui.fragments.DrawFragment"
-        android:label="スタンプ作成画面"
+        android:label="@string/draw_title"
         tools:layout="@layout/fragment_draw" />
 
     <fragment
         android:id="@+id/stampFragment"
         android:name="com.example.stamp.ui.fragments.StampFragment"
-        android:label="スタンプ一覧画面"
+        android:label="@string/list_title"
         tools:layout="@layout/fragment_stamp" />
 
 </navigation>

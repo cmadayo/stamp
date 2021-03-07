@@ -10,7 +10,7 @@ interface StampDao {
     fun getStamps(): LiveData<List<StampEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert( videos: StampEntity)
+    fun insert( stamps: StampEntity)
 }
 
 @Database(entities = [StampEntity::class], version = 1, exportSchema = false)

@@ -1,13 +1,18 @@
 <resources>
+    <!--  アプリケーション名  -->
     <string name="app_name">Stamp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  ボタン名  -->
     <string name="draw_button">スタンプ作成</string>
-    <string name="rules">Rules</string>
-    <string name="about">About</string>
-    <string name="draw_title">スタンプ作成画面</string>
     <string name="save">保存</string>
     <string name="stamps">スタンプ一覧</string>
+
+    <!--  画面名  -->
+    <string name="draw_title">スタンプ作成</string>
+    <string name="list_title">スタンプ一覧</string>
+
+    <!--  ラベル  -->
     <string name="title">タイトル</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
