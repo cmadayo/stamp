@@ -19,7 +19,9 @@
         app:cardCornerRadius="0dp"
         app:cardElevation="5dp"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -42,38 +44,20 @@
 
 
             <TextView
-                android:id="@+id/id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="16dp"
-                android:text="@{String.valueOf(stamp.id)}"
-                android:textAlignment="viewStart"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/right_well"
-                app:layout_constraintStart_toStartOf="@+id/left_well"
-                app:layout_constraintTop_toBottomOf="@+id/stamp_image"
-                tools:text="Video title" />
-
-
-            <TextView
                 android:id="@+id/title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
                 android:text="@{stamp.title}"
                 android:textAlignment="viewStart"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/right_well"
                 app:layout_constraintStart_toStartOf="@+id/left_well"
-                app:layout_constraintTop_toBottomOf="@+id/id"
-                app:layout_constraintBottom_toBottomOf="parent"
-                tools:text="this is a video" />
+                app:layout_constraintTop_toBottomOf="@+id/stamp_image"
+                tools:text="this is a title" />
 
             <ImageView
                 android:id="@+id/stamp_image"
