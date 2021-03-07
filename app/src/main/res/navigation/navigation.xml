@@ -28,6 +28,10 @@
         android:id="@+id/stampFragment"
         android:name="com.example.stamp.ui.fragments.StampFragment"
         android:label="@string/list_title"
-        tools:layout="@layout/fragment_stamp" />
+        tools:layout="@layout/fragment_stamp" >
+        <action
+            android:id="@+id/action_stampFragment_to_drawFragment"
+            app:destination="@id/drawFragment" />
+    </fragment>
 
 </navigation>
