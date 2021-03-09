@@ -3,20 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/topFragment">
+    app:startDestination="@id/stampFragment">
 
-    <fragment
-        android:id="@+id/topFragment"
-        android:name="com.example.stamp.ui.fragments.TopFragment"
-        android:label="@string/app_name"
-        tools:layout="@layout/fragment_top">
-        <action
-            android:id="@+id/action_topFragment_to_drawFragment"
-            app:destination="@id/drawFragment" />
-        <action
-            android:id="@+id/action_topFragment_to_stampFragment"
-            app:destination="@id/stampFragment" />
-    </fragment>
 
     <fragment
         android:id="@+id/drawFragment"

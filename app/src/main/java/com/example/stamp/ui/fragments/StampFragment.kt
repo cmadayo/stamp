@@ -13,13 +13,16 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stamp.R
+import com.example.stamp.businesslogic.domains.DomainStamp
+import com.example.stamp.businesslogic.viewmodels.StampViewModel
 import com.example.stamp.databinding.FragmentStampBinding
 import com.example.stamp.databinding.StampItemBinding
-import com.example.stamp.businesslogic.domains.DomainStamp
 import com.example.stamp.modules.EventObserver
-import com.example.stamp.businesslogic.viewmodels.StampViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Fragment:スタンプ一覧画面
+ */
 @AndroidEntryPoint
 class StampFragment : Fragment() {
     /**
@@ -95,7 +98,7 @@ class StampClick(val block: (DomainStamp) -> Unit) {
 }
 
 /**
- * Memo:各アイテムにデータバインディングするためのRecyclerView Adapter
+ * Stamp構造体をRecyclerViewで表示するためのAdapter
  */
 class StampAdapter(val callback: StampClick) : RecyclerView.Adapter<StampHolder>() {
 
