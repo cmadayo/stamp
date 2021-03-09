@@ -3,7 +3,6 @@ package com.example.stamp.ui.customviews
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
@@ -112,7 +111,6 @@ class DrawView : View {
 
         // グリッド線を描画
         for(i in 1 until X_SPLIT) {
-            Log.e("", "" + width*i/X_SPLIT + "," + 0f + "," + width*i/X_SPLIT + "," + height)
             canvas.drawLine(width*i/X_SPLIT, 0f, width*i/X_SPLIT, height, paintBackGroundGrid)
         }
         for(i in 1 until Y_SPLIT) {
